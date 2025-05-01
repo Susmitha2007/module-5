@@ -11,8 +11,33 @@ To write a C Program to find area of rectangle using pointer.
 
 ## PROGRAM
 
+#include <stdio.h>
+
+int main() {
+    
+    int length, width, area;
+    
+    int *x, *y;
+
+    scanf("%d", &length);
+    
+    scanf("%d", &width);
+
+    x = &length;
+    
+    y = &width;
+
+    area = (*x) * (*y);
+
+    printf("The area of the rectangle is: %d\n", area);
+
+    return 0;
+}
+
+
 ## OUTPUT
 		       	
+![Screenshot 2025-05-01 090623](https://github.com/user-attachments/assets/f47e97d5-0a23-4a63-954f-8a2ac02951d2)
 
 
 ## RESULT
@@ -35,7 +60,39 @@ To write a C Program to print 'WELCOME' using malloc() and free().
 
 ## PROGRAM
 
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <string.h>
+
+int main() {
+    
+    char *str = (char*) malloc(8 * sizeof(char));  
+   if (str == NULL) {
+    
+    
+        printf("Memory allocation failed.\n");
+        
+        return 1; 
+        
+    }
+
+    strcpy(str, "WELCOME");
+
+    printf("%s\n", str);
+
+    free(str);
+
+    return 0;
+}
+
+
+
 ## OUTPUT
+
+
+![Screenshot 2025-05-01 091110](https://github.com/user-attachments/assets/e33bcc6d-85ac-42ce-9d58-bcfe03dc749c)
 
 
 
@@ -61,8 +118,43 @@ To write a C Program to store the student information and display it using struc
 
 ## PROGRAM
 
+#include <stdio.h>
+
+struct Student {
+    
+    char name[50];
+    
+    int rollNumber;
+    
+    float marks;
+};
+
+int main() {
+    
+    struct Student student;
+
+    fgets(student.name, sizeof(student.name), stdin); // Read name with spaces
+
+    scanf("%d", &student.rollNumber);
+
+    scanf("%f", &student.marks);
+
+    printf("\nStudent Information:\n");
+    
+    printf("Name: %s", student.name); 
+    
+    printf("Roll Number: %d\n", student.rollNumber);
+    
+    printf("Marks: %.2f\n", student.marks);
+
+    return 0;
+}
+
 
 ## OUTPUT
+
+![Screenshot 2025-05-01 091401](https://github.com/user-attachments/assets/f2cf5a2a-a482-4636-a05f-4a5820d78376)
+
 
 
 ## RESULT
@@ -89,9 +181,39 @@ To write a C Program to read and store the data of 3 employees and calculate the
 ## PROGRAM
 
 
+#include <stdio.h> 
+struct Employee { 
+    char name [50]; 
+    int id; 
+    float basicSalary; 
+    float grossSalary; 
+}; 
+int main() { 
+    struct Employee employees [3]; 
+    int i; 
+    for (i = 0; i < 3; i++) 
+    { 
+    fgets(employees[i].name, sizeof(employees[i].name), stdin); 
+    scanf("%d", &employees[i].id); 
+    scanf("%f", &employees[i].basicSalary); 
+    employees[i].grossSalary = employees[i].basicSalary + (0.20* employees[i] .basicSalary) + (0.10 * employees[i].basicSalary);
+    getchar(); 
+    } 
+    printf("\nEmployee Details and Gross Salary:\n"); 
+    for (i = 0; i < 3; i++) { 
+    printf("\nEmployee %d\n", i + 1); 
+    printf("Name: %s", employees[i].name); 
+    printf("ID: %d\n", employees[i].id); 
+    printf("Basic Salary: %.2f\n", employees[i].basicSalary); 
+    printf("Gross Salary: %.2f\n", employees[i].grossSalary); 
+    } 
+    return 0; 
+}
+
  ## OUTPUT
 
- 
+ ![Screenshot 2025-05-01 092828](https://github.com/user-attachments/assets/19fcf817-7994-4343-b6cb-bf42e1ec76bc)
+
 
 ## RESULT
 
@@ -135,10 +257,69 @@ Step 8: End the program.
 
 ## PROGRAM
 
+#include <stdio.h>
+
+struct student {
+    
+    char name[10];
+    
+    int rollno;
+    
+    int subject[5];
+    
+    int total;
+    
+};
+
+int main() {
+    
+    struct student s[2];
+    
+    int n, i, j;
+
+    for (i = 0; i < 2; i++) {
+        
+        scanf("%d", &s[i].rollno);
+        
+
+        for (j = 0; j < 5; j++) {
+            
+            scanf("%d", &s[i].subject[j]);
+            
+        }
+        
+    }
+
+    for (i = 0; i < 2; i++) {
+        
+        s[i].total = 0;
+        
+        for (j = 0; j < 5; j++) {
+            
+            s[i].total += s[i].subject[j];
+            
+        }
+        
+    }
+    
+
+    for (i = 0; i < 2; i++) {
+        
+        printf("\nTotal marks for student %d: %d\n", i + 1, s[i].total);
+        
+        printf("Average marks for student %d: %.2f\n", i + 1, s[i].total / 5.0);
+        
+    }
+    
+
+    return 0;
+}
+
 
 ## OUTPUT
 
- 
+ ![Screenshot 2025-05-01 093703](https://github.com/user-attachments/assets/873221f1-0e7f-4d82-871b-18864f2577ac)
+
 
 ## RESULT
 
